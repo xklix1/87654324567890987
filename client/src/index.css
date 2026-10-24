@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --color-bg-base: #070b14;
+    --color-bg-card: #0f172a;
+    --color-border-subtle: #1e293b;
+    --color-accent-emerald: #10b981;
+    --color-accent-gold: #f59e0b;
+    --color-accent-cyan: #06b6d4;
+  }
+
+  * {
+    border-color: #1e293b;
+    scrollbar-width: thin;
+    scrollbar-color: #1e293b rgba(7, 11, 20, 0.7);
+  }
+
+  body {
+    background-color: #070b14;
+    color: #f1f5f9;
+    font-family: 'Cairo', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ========================================================
+   CYBERPUNK / EMERALD NEON CUSTOM SCROLLBAR SYSTEM
+   ======================================================== */
+
+/* Chrome, Edge, Safari, Opera (WebKit / Blink) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(7, 11, 20, 0.7);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+  border-color: #34d399;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #059669;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Utility to completely hide scrollbar while preserving scroll functionality */
+.scrollbar-none {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Thin variant */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Custom Financial Dashboard Utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+.glass-panel-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Custom Smooth Progress Pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+  }
+}
+
+.animate-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Floating VFX Numbers Animation */
+@keyframes floatFadeUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.85);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -18px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -65px) scale(1);
+  }
+}
+
+.animate-float-fade {
+  animation: floatFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Tactile 3D Mobile Game Buttons */
+.btn-game-3d {
+  position: relative;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+.btn-game-3d:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-game-emerald {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border-top: 1px solid #34d399;
+  border-bottom: 3px solid #047857;
+  color: #022c22;
+}
+
+.btn-game-gold {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  border-top: 1px solid #fcd34d;
+  border-bottom: 3px solid #b45309;
+  color: #451a03;
+}
+
+.btn-game-cyan {
+  background: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%);
+  border-top: 1px solid #67e8f9;
+  border-bottom: 3px solid #0e7490;
+  color: #083344;
+}
+

@@ -1,0 +1,28 @@
+{
+  "name": "wealth-race-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multiplayer Tycoon Android APK Game - Phase 1 Core Architecture",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "install:all": "npm.cmd install && cd server && npm.cmd install && cd ../client && npm.cmd install",
+    "dev:server": "cd server && npm.cmd run dev",
+    "dev:client": "cd client && npm.cmd run dev",
+    "build:server": "cd server && npm.cmd run build",
+    "build:client": "cd client && npm.cmd run build",
+    "lint": "cd server && npm.cmd run type-check && cd ../client && npm.cmd run type-check"
+  },
+  "keywords": [
+    "tycoon",
+    "game",
+    "real-time",
+    "financial",
+    "apk",
+    "typescript"
+  ],
+  "author": "Principal Game Architecture Team",
+  "license": "UNLICENSED"
+}
