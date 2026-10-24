@@ -7,10 +7,14 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z
     .string()
-    .transform((val: string): number => parseInt(val, 10))
+    .optional()
+    .transform((val: string | undefined): number => (val ? parseInt(val, 10) : 5000))
     .pipe(z.number().positive().default(5000)),
   HOST: z.string().default('0.0.0.0'),
-  JWT_SECRET: z.string().min(16, 'JWT_SECRET must be at least 16 characters long'),
+  JWT_SECRET: z
+    .string()
+    .min(16, 'JWT_SECRET must be at least 16 characters long')
+    .default('wealth_race_super_secret_jwt_key_2026_prod'),
   JWT_EXPIRES_IN: z.string().default('7d'),
   DATABASE_URL: z.string().optional().default('postgresql://postgres:postgres@localhost:5432/wealth_race'),
   DATABASE_SSL: z
