@@ -59,7 +59,36 @@ let memSystemVersion: SystemVersionRecord = {
   updated_at: new Date(),
 };
 
-const memUsers = new Map<string, UserRecord>();
+const demoPasswordHash = '$2a$10$/ig4AlBfPfhZ3Q9ZM78YpOZUqGSZNhmZhoJxaLomPRZKbWjJfEym2';
+
+const defaultDemoUsers: UserRecord[] = [
+  {
+    id: '766e5399-7290-4136-bb88-44975e3e2b57',
+    username: 'demo_player',
+    email: 'demo@gmail.com',
+    password_hash: demoPasswordHash,
+    balance: 1000.0,
+    current_job_id: 1,
+    last_synced_at: new Date(),
+    created_at: new Date(),
+    is_suspended: false,
+    transfers_frozen: false,
+  },
+  {
+    id: 'bbdaec0b-ce97-4837-b68e-541600e7ab93',
+    username: 'investor_bob',
+    email: 'bob@gmail.com',
+    password_hash: demoPasswordHash,
+    balance: 1000.0,
+    current_job_id: 1,
+    last_synced_at: new Date(),
+    created_at: new Date(),
+    is_suspended: false,
+    transfers_frozen: false,
+  },
+];
+
+const memUsers = new Map<string, UserRecord>(defaultDemoUsers.map((u) => [u.id, u]));
 const memJobs = new Map<number, JobRecord>(seedJobs.map((j) => [j.id, j]));
 const memTransactions: TransactionRecord[] = [];
 let transactionIdCounter = 1;
